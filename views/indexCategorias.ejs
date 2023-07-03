@@ -1,0 +1,30 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Categorias</title>
+		<link rel="stylesheet" type="text/css" href="/styles.css" />
+	</head>
+	<body>
+		<h1>CATEGORIAS</h1>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Acciones</th>
+			</tr>
+			<% categorias.forEach(categoria => { %>
+			<tr>
+				<td><%= categoria.id %></td>
+				<td><%= categoria.nombre %></td>
+				<td>
+					<a href="/editarcategorias/<%= categoria.id %>">Editar</a>
+					<a href="/eliminarcategorias/<%= categoria.id %>">Eliminar</a>
+				</td>
+			</tr>
+			<% }) %>
+		</table>
+		<a href="/agregarcategorias">Agregar categoria</a>
+	</body>
+</html>

@@ -28,7 +28,7 @@ ALTER TABLE fabricantes MODIFY COLUMN id TINYINT AUTO_INCREMENT PRIMARY KEY;
 #ALTER TABLE categorias ADD PRIMARY KEY AUTO_INCREMENT (id);
 ALTER TABLE categorias MODIFY COLUMN id TINYINT AUTO_INCREMENT PRIMARY KEY;
 
-ALTER TABLE productos ADD CONSTRAINT fk_categoria FOREIGN KEY (categoria) REFERENCES categorias(id);
-ALTER TABLE productos ADD CONSTRAINT fk_fabricante FOREIGN KEY (fabricante) REFERENCES fabricantes(id);
+#ALTER TABLE productos ADD CONSTRAINT fk_categoria FOREIGN KEY (categoria) REFERENCES categorias(id);
+#ALTER TABLE productos ADD CONSTRAINT fk_fabricante FOREIGN KEY (fabricante) REFERENCES fabricantes(id);
 
 SHOW TABLES;
