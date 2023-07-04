@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="/styles.css" />
+		<title>Productos de la categoria</title>
+	</head>
+	<body>
+		<body>
+			<h1>Productos de la categoria</h1>
+			<button><a href="/listarproductos">Productos</a></button>
+			<button><a href="/listarcategorias">Categorias</a></button>
+			<button><a href="/listarfabricantes">Fabricantes</a></button>
+			<br /><br />
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Categoria</th>
+					<th>Precio</th>
+					<th>Stock</th>
+					<th>Fabricante</th>
+					<th>Acciones</th>
+				</tr>
+				<% productos.forEach(producto => { %>
+				<tr>
+					<td><%= producto.id %></td>
+					<td><%= producto.nombre %></td>
+					<td><%= producto.categoria %></td>
+					<td><%= producto.precio %></td>
+					<td><%= producto.stock %></td>
+					<td><%= producto.fabricante %></td>
+					<td>
+						<a href="/editarproductos/<%= producto.id %>">Editar</a>
+						<a href="/eliminarproductos/<%= producto.id %>">Eliminar</a>
+					</td>
+				</tr>
+				<% }) %>
+			</table>
+			<a href="/agregarproductos">Agregar producto</a>
+		</body>
+	</body>
+</html>

@@ -8,11 +8,16 @@
 	</head>
 	<body>
 		<h1>FABRICANTES</h1>
+		<button><a href="/listarproductos">Productos</a></button>
+		<button><a href="/listarcategorias">Categorias</a></button>
+		<button><a href="/listarfabricantes">Fabricantes</a></button>
+		<br /><br />
 		<table>
 			<tr>
 				<th>ID</th>
 				<th>Nombre</th>
 				<th>Acciones</th>
+				<th>Productos del fabricante</th>
 			</tr>
 			<% fabricantes.forEach(fabricante => { %>
 			<tr>
@@ -22,6 +27,7 @@
 					<a href="/editarfabricantes/<%= fabricante.id %>">Editar</a>
 					<a href="/eliminarfabricantes/<%= fabricante.id %>">Eliminar</a>
 				</td>
+				<td><a href="/verfabricante/<%= fabricante.id %>">Listado productos</a></td>
 			</tr>
 			<% }) %>
 		</table>

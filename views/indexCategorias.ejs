@@ -8,11 +8,16 @@
 	</head>
 	<body>
 		<h1>CATEGORIAS</h1>
+		<button><a href="/listarproductos">Productos</a></button>
+		<button><a href="/listarcategorias">Categorias</a></button>
+		<button><a href="/listarfabricantes">Fabricantes</a></button>
+		<br /><br />
 		<table>
 			<tr>
 				<th>ID</th>
 				<th>Nombre</th>
 				<th>Acciones</th>
+				<th>Productos de la categoria</th>
 			</tr>
 			<% categorias.forEach(categoria => { %>
 			<tr>
@@ -22,6 +27,7 @@
 					<a href="/editarcategorias/<%= categoria.id %>">Editar</a>
 					<a href="/eliminarcategorias/<%= categoria.id %>">Eliminar</a>
 				</td>
+				<td><a href="/vercategoria/<%= categoria.id %>">Listado productos</a></td>
 			</tr>
 			<% }) %>
 		</table>

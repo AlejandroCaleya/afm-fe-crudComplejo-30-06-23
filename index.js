@@ -10,6 +10,11 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 
+//Seleccionar base de datos
+app.get("/", (req, res) => {
+	res.render("home");
+});
+
 // Obtener todos los productos
 app.get("/listarproductos", (req, res) => {
 	db.query("SELECT * FROM productos", (error, results) => {
@@ -146,6 +151,32 @@ app.get("/eliminarfabricantes/:id", (req, res) => {
 		if (error) throw error;
 		res.redirect("/listarfabricantes");
 	});
+});
+
+//Ver listado de productos de un FABRICANTE
+app.get("/verfabricante/:id", (req, res) => {
+	const id = req.params.id;
+	db.query(
+		"SELECT productos.* FROM productos JOIN fabricantes ON productos.fabricante = fabricantes.id WHERE fabricantes.id = ?",
+		id,
+		(error, results) => {
+			if (error) throw error;
+			res.render("verFabricante", { productos: results });
+		}
+	);
+});
+
+//Ver listado de productos de una CATEGORIA
+app.get("/vercategoria/:id", (req, res) => {
+	const id = req.params.id;
+	db.query(
+		"SELECT productos.* FROM productos JOIN categorias ON productos.categoria = categorias.id WHERE categorias.id = ?",
+		id,
+		(error, results) => {
+			if (error) throw error;
+			res.render("verCategoria", { productos: results });
+		}
+	);
 });
 
 app.listen(port, () => {
